@@ -97,33 +97,11 @@
       object-fit: contain;
     }
 
-    .cbs-program {
-      background: var(--brand);
-      color: #fff;
-      padding: 0 16px 14px;
-    }
-
-    .cbs-program-title {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: .3px;
-      font-family: 'Open Sans', Arial, sans-serif;
-    }
-
-    .cbs-program p {
-      margin: 3px 0 0;
-      font-size: 12.5px;
-      opacity: .95;
-      line-height: 1.35;
-    }
-
     .cbs-nav {
       background: var(--brand);
       display: flex;
       gap: 20px;
-      padding: 0 16px 12px;
+      padding: 8px 16px;
       overflow-x: auto;
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
@@ -135,39 +113,46 @@
     .cbs-nav a {
       color: #fff;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       font-family: 'Open Sans', Arial, sans-serif;
       flex: 0 0 auto;
-      opacity: .92;
+      opacity: .9;
     }
 
-    .cbs-nav a:active,
-    .cbs-nav a:hover { opacity: 1; text-decoration: underline; }
+    .cbs-nav a:hover { opacity: 1; }
 
-    .cbs-ticker {
-      background: var(--brand-dark);
-      color: #fff;
+    .cbs-nav a.is-active {
+      opacity: 1;
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Headline eyebrow: CBS-Morning style kicker + live localized date */
+    .cbs-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cbs-eyebrow__kicker {
+      color: var(--brand);
+      font-weight: 800;
       font-size: 12px;
-      overflow: hidden;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+
+    .cbs-eyebrow__date {
+      color: #777;
+      font-size: 12.5px;
+      font-weight: 500;
       white-space: nowrap;
-      padding: 7px 0;
-    }
-
-    .cbs-ticker__track {
-      display: inline-block;
-      padding-left: 100%;
-      animation: cbs-ticker 24s linear infinite;
-      will-change: transform;
-    }
-
-    @keyframes cbs-ticker {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .cbs-ticker__track { animation: none; padding-left: 0; }
     }
 
     /* ===== Brand applied to CTAs / accents that come from external CSS ===== */
@@ -187,8 +172,35 @@
 
     .border-primary-new { border: 2px solid var(--brand) !important; }
 
-    .privacidade,
-    .termos { color: var(--brand-dark); }
+    /* Footer: override external red (#A70C0C) with brand palette */
+    footer { background-color: var(--brand) !important; }
+    footer a { color: #fff !important; }
+    footer h3 { background-color: var(--brand-darker) !important; }
+
+    /* ===== Comments (active, social-feed style) ===== */
+    .cm-list { display: flex; flex-direction: column; gap: 18px; }
+    .cm-row { display: flex; gap: 12px; align-items: flex-start; }
+    .cm-avatar { width: 44px; height: 44px; border-radius: 9999px; object-fit: cover; flex: 0 0 auto; }
+    .cm-avatar--sm { width: 34px; height: 34px; }
+    .cm-bubble { background: #f0f2f5; border-radius: 16px; padding: 9px 13px; }
+    .cm-name { font-weight: 700; font-size: 13px; color: #050505; line-height: 1.2; margin: 0 0 2px; display: flex; align-items: center; gap: 5px; }
+    .cm-badge { color: var(--brand); display: inline-flex; }
+    .cm-text { font-size: 13.5px; color: #1c1e21; line-height: 1.45; margin: 0; }
+    .cm-meta { display: flex; align-items: center; gap: 14px; margin: 5px 0 0 12px; font-size: 12px; font-weight: 700; color: #65676b; }
+    .cm-meta button { background: none; border: 0; padding: 0; font: inherit; color: #65676b; cursor: pointer; }
+    .cm-meta button:hover { text-decoration: underline; }
+    .cm-meta .is-liked { color: var(--brand); }
+    .cm-time { font-weight: 500; color: #8a8d91; }
+    .cm-likes { display: inline-flex; align-items: center; gap: 4px; margin-left: auto; font-weight: 600; color: #65676b; }
+    .cm-likes svg { color: var(--brand); }
+    .cm-replies { margin: 10px 0 0 16px; padding-left: 12px; border-left: 2px solid #e9ebee; display: flex; flex-direction: column; gap: 12px; }
+    .cm-viewmore { margin: 6px 0 0 12px; font-size: 13px; font-weight: 700; color: #65676b; background: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .cm-viewmore:hover { text-decoration: underline; }
+    .cm-composer { display: flex; gap: 10px; align-items: center; margin-bottom: 18px; }
+    .cm-composer input { flex: 1; border: 1px solid #ccd0d5; background: #f0f2f5; border-radius: 9999px; padding: 9px 14px; font-size: 13.5px; outline: none; }
+    .cm-composer input:focus { border-color: var(--brand); }
+    .cm-load { width: 100%; margin-top: 18px; padding: 10px; border: 1px solid #ccd0d5; border-radius: 8px; background: #fff; font-weight: 700; font-size: 13.5px; color: #050505; cursor: pointer; }
+    .cm-load:hover { background: #f0f2f5; }
   </style>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -232,41 +244,25 @@
       </button>
     </header>
 
-    <!-- Program title block -->
-    <div class="cbs-program">
-      <p class="cbs-program-title">HEALTH</p>
-      <p>Daily updates on wellness and health<br>Featured reports every morning</p>
-    </div>
-
-    <!-- Category nav -->
-    <nav class="cbs-nav" aria-label="Categories">
-      <a href="#">Arts</a>
-      <a href="#">Books</a>
-      <a href="#">Commentaries</a>
-      <a href="#">Profiles</a>
-      <a href="#">Nature</a>
+    <!-- Section nav (slim, topic-relevant) -->
+    <nav class="cbs-nav" aria-label="Sections">
+      <a href="#" class="is-active">Sunday Morning</a>
+      <a href="#">Health</a>
+      <a href="#">Memory</a>
+      <a href="#">Aging</a>
+      <a href="#">Research</a>
     </nav>
 
-    <!-- News ticker (CSS-animated, replaces obsolete <marquee>) -->
-    <div class="cbs-ticker" aria-hidden="true">
-      <span class="cbs-ticker__track">Daily updates on wellness and health — Daily updates on wellness and health — Daily updates on wellness and health — Daily updates on wellness and health</span>
-    </div>
     <section class="principal">
-      <!-- Título principal -->
-      <div class="px-4 pt-4 pb-5 max-w-4xl mx-auto font-sans">
-        <h1 class="text-[28px] md:text-[40px] leading-[1.1] font-extrabold text-black mb-4 tracking-tight">
+      <!-- Headline (CBS Morning style: kicker + live localized date + title) -->
+      <div class="px-4 pt-3 pb-3 max-w-3xl mx-auto font-sans">
+        <div class="cbs-eyebrow">
+          <span class="cbs-eyebrow__kicker">Sunday Morning</span>
+          <span class="cbs-eyebrow__date data_atual"></span>
+        </div>
+        <h1 class="text-[24px] md:text-[34px] leading-[1.12] font-extrabold text-black tracking-tight">
           <span class="text-[#cd8900]">URGENT:</span> Scientists uncover a natural solution to boost memory and support cognitive health that can be done at home
         </h1>
-
-        <div class="flex items-start border-l-[3px] border-[#cd8900] pl-3 py-1 mb-4">
-          <p class="text-[16px] md:text-[18px] text-[#333] font-medium leading-tight">
-            Over 15,000 Americans have already reported a significant improvement in memory.
-          </p>
-        </div>
-
-        <p class="text-[14px] text-gray-500 font-normal">
-          <span class="data_atual"></span>
-        </p>
       </div>
       <div class="video_vturb">
 
@@ -309,6 +305,14 @@
 
         <!-- END Vturb JS -->
 
+      </div>
+      <!-- Social proof line (moved below the VSL so the video sits higher) -->
+      <div class="px-4 pt-3 pb-1 max-w-3xl mx-auto font-sans">
+        <div class="flex items-start border-l-[3px] border-[#cd8900] pl-3 py-1">
+          <p class="text-[15px] md:text-[17px] text-[#333] font-medium leading-tight">
+            Over 15,000 Americans have already reported a significant improvement in memory.
+          </p>
+        </div>
       </div>
       <div style="display: flex; justify-content: center ;">
         <img decoding="async" src="images/ADV-PORTAIS.webp" class="img_adv" alt="Advertorial">
@@ -507,80 +511,169 @@
     </section>
     <section class="cv-auto container mx-auto my-10 p-4 font-sans max-w-3xl">
 
-      <div class="border-b border-gray-300 pb-2 mb-6">
-        <h3 class="text-[15px] font-bold text-black">4,128 comments</h3>
+      <div class="border-b border-gray-300 pb-3 mb-4 flex items-center justify-between">
+        <h3 class="text-[16px] font-bold text-black">4,128 comments</h3>
+        <span class="text-[12px] font-semibold text-gray-500">Sort by: <span class="text-black">Top</span></span>
       </div>
 
-      <div class="space-y-5">
+      <!-- Composer -->
+      <div class="cm-composer">
+        <img class="cm-avatar cm-avatar--sm" src="images/foto1 (1).jpg" loading="lazy" alt="Your avatar">
+        <input type="text" placeholder="Add a comment…" aria-label="Add a comment">
+      </div>
 
-        <div class="flex gap-3 items-start">
-          <img src="images/foto1 (3).jpg" loading="lazy" class="w-11 h-11 rounded-sm shadow-sm" alt="User review memory">
+      <div class="cm-list" id="cm-list">
+
+        <!-- Comment 1 (with reply thread) -->
+        <div class="cm-row">
+          <img class="cm-avatar" src="images/foto1 (3).jpg" loading="lazy" alt="">
           <div class="w-full">
-            <div class="bg-[#f0f2f5] p-3 rounded-[18px]">
-              <p class="font-bold text-[#cd8900] text-[13px] leading-tight mb-1 hover:underline cursor-pointer">Margaret R.</p>
-              <p class="text-[13px] text-gray-800 leading-normal">
-                The forgetfulness wasn&rsquo;t the worst part — it was the look on my family&rsquo;s faces. After a few weeks trying what this report explains about memory, I feel like I&rsquo;m back at the head of the table. Thank you.
+            <div class="cm-bubble">
+              <p class="cm-name">Margaret R.
+                <span class="cm-badge" title="Verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.6l2.6 2 3.3.2.9 3.1 2.4 2.3-1.1 3.1 1.1 3.1-2.4 2.3-.9 3.1-3.3.2-2.6 2-2.6-2-3.3-.2-.9-3.1L3.3 17l1.1-3.1L3.3 10.8l2.4-2.3.9-3.1 3.3-.2z"></path><path d="M10.4 14.6l-2.1-2.1-1.4 1.4 3.5 3.5L17 11.3l-1.4-1.4z" fill="#fff"></path></svg></span>
               </p>
+              <p class="cm-text">The forgetfulness wasn&rsquo;t the worst part — it was the look on my family&rsquo;s faces. After a few weeks trying what this report explains about memory, I feel like I&rsquo;m back at the head of the table. Thank you.</p>
             </div>
-            <div class="flex items-center gap-2 mt-1 ml-2 text-[11px] font-bold text-gray-500">
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Like</span> ·
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Reply</span> ·
-              <span class="flex items-center gap-1 font-normal"> 2 h </span>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">2h</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">312</span></span>
             </div>
 
-            <div class="flex gap-2 mt-3 ml-4 items-start border-l-2 border-gray-100 pl-3">
-              <img src="images/foto1 (1).jpg" loading="lazy" class="w-8 h-8 rounded-sm" alt="Verified user">
-              <div class="w-full">
-                <div class="bg-[#f0f2f5] p-2 rounded-[15px]">
-                  <p class="font-bold text-[#cd8900] text-[12px] leading-tight mb-0.5">Helen T.</p>
-                  <p class="text-[12px] text-gray-800  leading-tight">
-                    We were facing $9k/month care costs. I had no hope after reading so many empty promises online — then this story on memory and aging actually matched what we lived. Today I have my husband back. The conversations, the jokes… we finally see a path forward.
-                  </p>
-                </div>
-                <div class="flex items-center gap-2 mt-1 ml-2 text-[11px] font-bold text-gray-500">
-                  <span class="hover:underline cursor-pointer text-[#cd8900]">Like</span> · <span class="font-normal text-gray-400">1 h</span>
+            <div class="cm-replies">
+              <div class="cm-row">
+                <img class="cm-avatar cm-avatar--sm" src="images/foto1 (1).jpg" loading="lazy" alt="">
+                <div class="w-full">
+                  <div class="cm-bubble">
+                    <p class="cm-name">Helen T.</p>
+                    <p class="cm-text">We were facing $9k/month care costs. I had no hope after reading so many empty promises online — then this story on memory and aging actually matched what we lived. Today I have my husband back.</p>
+                  </div>
+                  <div class="cm-meta">
+                    <button type="button" class="cm-like">Like</button>
+                    <button type="button">Reply</button>
+                    <span class="cm-time">1h</span>
+                    <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">86</span></span>
+                  </div>
                 </div>
               </div>
+              <button type="button" class="cm-viewmore" data-replies>View 3 more replies</button>
             </div>
           </div>
         </div>
 
-        <div class="flex gap-3 items-start">
-          <img src="images/nova1 (2).jpg" loading="lazy" class="w-11 h-11 rounded-sm shadow-sm" alt="Robert Florida review">
+        <!-- Comment 2 -->
+        <div class="cm-row">
+          <img class="cm-avatar" src="images/nova1 (2).jpg" loading="lazy" alt="">
           <div class="w-full">
-            <div class="bg-[#f0f2f5] p-3 rounded-[18px]">
-              <p class="font-bold text-[#cd8900] text-[13px] leading-tight mb-1 hover:underline cursor-pointer">Robert · Florida</p>
-              <p class="text-[13px] text-gray-800 leading-normal">
-                I almost skipped it — sounded like every other clip about memory. I watched the whole thing anyway. Week 3: clarity is unbelievable. I even remembered the plot of a book from months ago.
+            <div class="cm-bubble">
+              <p class="cm-name">Robert · Florida
+                <span class="cm-badge" title="Verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.6l2.6 2 3.3.2.9 3.1 2.4 2.3-1.1 3.1 1.1 3.1-2.4 2.3-.9 3.1-3.3.2-2.6 2-2.6-2-3.3-.2-.9-3.1L3.3 17l1.1-3.1L3.3 10.8l2.4-2.3.9-3.1 3.3-.2z"></path><path d="M10.4 14.6l-2.1-2.1-1.4 1.4 3.5 3.5L17 11.3l-1.4-1.4z" fill="#fff"></path></svg></span>
               </p>
+              <p class="cm-text">I almost skipped it — sounded like every other clip about memory. I watched the whole thing anyway. Week 3: clarity is unbelievable. I even remembered the plot of a book from months ago.</p>
             </div>
-            <div class="flex items-center gap-2 mt-1 ml-2 text-[11px] font-bold text-gray-500">
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Like</span> ·
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Reply</span> ·
-              <span class="flex items-center gap-1 font-normal text-gray-400"> 5 h </span>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">5h</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">198</span></span>
             </div>
           </div>
         </div>
 
-        <div class="flex gap-3 items-start">
-          <img src="images/nova1 (4).jpg" loading="lazy" class="w-11 h-11 rounded-sm shadow-sm" alt="Focus and brain fog">
+        <!-- Comment 3 -->
+        <div class="cm-row">
+          <img class="cm-avatar" src="images/nova1 (4).jpg" loading="lazy" alt="">
           <div class="w-full">
-            <div class="bg-[#f0f2f5] p-3 rounded-[18px]">
-              <p class="font-bold text-[#cd8900] text-[13px] leading-tight mb-1 hover:underline cursor-pointer">Lauren · 42</p>
-              <p class="text-[13px] text-gray-800 leading-normal">
-                I don&rsquo;t have a diagnosis — I just had brutal brain fog and fatigue. The part of the report on daily habits stuck with me; I&rsquo;m sharper in meetings and I&rsquo;m not hunting for words all day.
-              </p>
+            <div class="cm-bubble">
+              <p class="cm-name">Lauren · 42</p>
+              <p class="cm-text">I don&rsquo;t have a diagnosis — I just had brutal brain fog and fatigue. The part of the report on daily habits stuck with me; I&rsquo;m sharper in meetings and I&rsquo;m not hunting for words all day.</p>
             </div>
-            <div class="flex items-center gap-2 mt-1 ml-2 text-[11px] font-bold text-gray-500">
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Like</span> ·
-              <span class="hover:underline cursor-pointer text-[#cd8900]">Reply</span> ·
-              <span class="flex items-center gap-1 font-normal text-gray-400"> 1 d </span>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">8h</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">141</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment 4 -->
+        <div class="cm-row">
+          <img class="cm-avatar" src="images/foto1 (1).jpg" loading="lazy" alt="">
+          <div class="w-full">
+            <div class="cm-bubble">
+              <p class="cm-name">James K.</p>
+              <p class="cm-text">Three weeks in and the brain fog finally lifted. Wish I&rsquo;d seen this report sooner.</p>
+            </div>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">11h</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">73</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden comments revealed by "View more" -->
+        <div class="cm-row" data-extra hidden>
+          <img class="cm-avatar" src="images/nova1 (2).jpg" loading="lazy" alt="">
+          <div class="w-full">
+            <div class="cm-bubble">
+              <p class="cm-name">Patricia M.</p>
+              <p class="cm-text">Shared this with my sister — we&rsquo;re both noticing a difference in how quickly we recall names now.</p>
+            </div>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">14h</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">52</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cm-row" data-extra hidden>
+          <img class="cm-avatar" src="images/foto1 (3).jpg" loading="lazy" alt="">
+          <div class="w-full">
+            <div class="cm-bubble">
+              <p class="cm-name">Don W. · Texas</p>
+              <p class="cm-text">Skeptical at first — not anymore. The difference after a month is hard to argue with.</p>
+            </div>
+            <div class="cm-meta">
+              <button type="button" class="cm-like">Like</button>
+              <button type="button">Reply</button>
+              <span class="cm-time">1d</span>
+              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">39</span></span>
             </div>
           </div>
         </div>
 
       </div>
+
+      <button type="button" class="cm-load" id="cm-load">View more comments</button>
     </section>
+    <script>
+      // Lightweight interactivity so the comment feed feels live.
+      (function () {
+        document.querySelectorAll('.cm-like').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var liked = b.classList.toggle('is-liked');
+            b.textContent = liked ? 'Liked' : 'Like';
+            var c = b.closest('.cm-meta');
+            c = c && c.querySelector('.cm-count');
+            if (c) c.textContent = (parseInt(c.textContent, 10) || 0) + (liked ? 1 : -1);
+          });
+        });
+        document.querySelectorAll('[data-replies]').forEach(function (b) {
+          b.addEventListener('click', function () { b.remove(); });
+        });
+        var load = document.getElementById('cm-load');
+        if (load) load.addEventListener('click', function () {
+          document.querySelectorAll('#cm-list [data-extra]').forEach(function (el) { el.hidden = false; });
+          load.remove();
+        });
+      })();
+    </script>
     <footer>
       <a href="/privacy-policy.html" class="privacidade">Privacy Policy</a>
       <br>
@@ -596,20 +689,16 @@
 
   </main>
   <script>
-    function obterDataFormatada() {
-      var data = new Date();
-      var dia = formatarNumero(data.getDate());
-      var mes = formatarNumero(data.getMonth() + 1); // Mês é baseado em zero, então adicionamos 1
-      var ano = data.getFullYear();
-      var dataFormatada = mes + '/' + dia + '/' + ano;
-      return dataFormatada;
-    }
-
-    function formatarNumero(numero) {
-      return numero < 10 ? '0' + numero : numero;
-    }
-    // Exemplo de uso
-    document.querySelector('.data_atual').textContent = obterDataFormatada();
+    // Region/timezone-aware date: uses the visitor's own locale and local time,
+    // so each prospect sees today's date formatted for their region.
+    (function () {
+      var formatted = new Date().toLocaleDateString(undefined, {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      document.querySelectorAll('.data_atual').forEach(function (el) {
+        el.textContent = formatted;
+      });
+    })();
   </script>
 
 
