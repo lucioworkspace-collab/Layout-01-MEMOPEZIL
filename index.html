@@ -183,6 +183,7 @@
     .cm-row { display: flex; gap: 12px; align-items: flex-start; }
     .cm-avatar { width: 44px; height: 44px; border-radius: 9999px; object-fit: cover; flex: 0 0 auto; }
     .cm-avatar--sm { width: 34px; height: 34px; }
+    .cm-avatar--you { background: #e4e6eb; display: flex; align-items: center; justify-content: center; color: #b0b3b8; }
     .cm-bubble { background: #f0f2f5; border-radius: 16px; padding: 9px 13px; }
     .cm-name { font-weight: 700; font-size: 13px; color: #050505; line-height: 1.2; margin: 0 0 2px; display: flex; align-items: center; gap: 5px; }
     .cm-badge { color: var(--brand); display: inline-flex; }
@@ -745,7 +746,7 @@
 
       <!-- Composer -->
       <div class="cm-composer">
-        <img width="80" height="80" class="cm-avatar cm-avatar--sm" src="images/depo2.webp" loading="lazy" alt="Your avatar">
+        <span class="cm-avatar cm-avatar--sm cm-avatar--you" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.5-8 5.5V21h16v-1.5c0-3-3.6-5.5-8-5.5z"></path></svg></span>
         <input type="text" placeholder="Add a comment…" aria-label="Add a comment">
       </div>
 
@@ -753,7 +754,7 @@
 
         <!-- Comment 1 (with reply thread) -->
         <div class="cm-row">
-          <img width="80" height="80" class="cm-avatar" src="images/depo4.webp" loading="lazy" alt="">
+          <img width="80" height="80" class="cm-avatar" src="images/depo1.webp" loading="lazy" alt="">
           <div class="w-full">
             <div class="cm-bubble">
               <p class="cm-name">Margaret R.
@@ -791,10 +792,10 @@
 
         <!-- Comment 2 -->
         <div class="cm-row">
-          <img width="80" height="80" class="cm-avatar" src="images/depo1.webp" loading="lazy" alt="">
+          <img width="80" height="80" class="cm-avatar" src="images/depo4.webp" loading="lazy" alt="">
           <div class="w-full">
             <div class="cm-bubble">
-              <p class="cm-name">Sandra · Florida
+              <p class="cm-name">Sandra K.
                 <span class="cm-badge" title="Verified"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.6l2.6 2 3.3.2.9 3.1 2.4 2.3-1.1 3.1 1.1 3.1-2.4 2.3-.9 3.1-3.3.2-2.6 2-2.6-2-3.3-.2-.9-3.1L3.3 17l1.1-3.1L3.3 10.8l2.4-2.3.9-3.1 3.3-.2z"></path><path d="M10.4 14.6l-2.1-2.1-1.4 1.4 3.5 3.5L17 11.3l-1.4-1.4z" fill="#fff"></path></svg></span>
               </p>
               <p class="cm-text">I almost skipped it — sounded like every other clip about memory. I watched the whole thing anyway. Week 3: clarity is unbelievable. I even remembered the plot of a book from months ago.</p>
@@ -813,7 +814,7 @@
           <img width="80" height="80" class="cm-avatar" src="images/depo3.webp" loading="lazy" alt="">
           <div class="w-full">
             <div class="cm-bubble">
-              <p class="cm-name">Lauren · 42</p>
+              <p class="cm-name">Lauren P.</p>
               <p class="cm-text">I don&rsquo;t have a diagnosis — I just had brutal brain fog and fatigue. The part of the report on daily habits stuck with me; I&rsquo;m sharper in meetings and I&rsquo;m not hunting for words all day.</p>
             </div>
             <div class="cm-meta">
@@ -827,11 +828,11 @@
 
         <!-- Comment 4 -->
         <div class="cm-row">
-          <img width="80" height="80" class="cm-avatar" src="images/depo2.webp" loading="lazy" alt="">
+          <img width="80" height="80" class="cm-avatar" src="images/depo5.webp" loading="lazy" alt="">
           <div class="w-full">
             <div class="cm-bubble">
-              <p class="cm-name">Joan K.</p>
-              <p class="cm-text">Three weeks in and the brain fog finally lifted. Wish I&rsquo;d seen this report sooner.</p>
+              <p class="cm-name">Patricia M.</p>
+              <p class="cm-text">Shared this with my sister — we&rsquo;re both noticing a difference in how quickly we recall names now.</p>
             </div>
             <div class="cm-meta">
               <button type="button" class="cm-like">Like</button>
@@ -842,42 +843,7 @@
           </div>
         </div>
 
-        <!-- Hidden comments revealed by "View more" -->
-        <div class="cm-row" data-extra hidden>
-          <img width="80" height="80" class="cm-avatar" src="images/depo1.webp" loading="lazy" alt="">
-          <div class="w-full">
-            <div class="cm-bubble">
-              <p class="cm-name">Patricia M.</p>
-              <p class="cm-text">Shared this with my sister — we&rsquo;re both noticing a difference in how quickly we recall names now.</p>
-            </div>
-            <div class="cm-meta">
-              <button type="button" class="cm-like">Like</button>
-              <button type="button">Reply</button>
-              <span class="cm-time">14h</span>
-              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">52</span></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="cm-row" data-extra hidden>
-          <img width="80" height="80" class="cm-avatar" src="images/depo4.webp" loading="lazy" alt="">
-          <div class="w-full">
-            <div class="cm-bubble">
-              <p class="cm-name">Donna W. · Texas</p>
-              <p class="cm-text">Skeptical at first — not anymore. The difference after a month is hard to argue with.</p>
-            </div>
-            <div class="cm-meta">
-              <button type="button" class="cm-like">Like</button>
-              <button type="button">Reply</button>
-              <span class="cm-time">1d</span>
-              <span class="cm-likes"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg><span class="cm-count">39</span></span>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-      <button type="button" class="cm-load" id="cm-load">View more comments</button>
     </section>
     <!-- Live "just reserved" lvt notifications -->
     <div class="lvt-wrap" id="lvtWrap" aria-hidden="true"></div>
@@ -894,10 +860,15 @@
         var pick = function (a) { return a[rand(0, a.length - 1)]; };
         var RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-        var NAMES =['Margaret', 'Sandra', 'Helen', 'Joan', 'Patricia', 'Donna', 'Linda', 'Carol',
-          'Barbara', 'Sharon', 'Susan', 'Deborah', 'Karen', 'Cynthia', 'Nancy', 'Brenda', 'Betty', 'Diane'];
-        var STATES = ['Florida', 'Texas', 'Ohio', 'Arizona', 'Georgia', 'Michigan', 'Nevada',
-          'Tennessee', 'Indiana', 'Missouri', 'Kentucky', 'Oregon', 'Colorado', 'Virginia'];
+        // Fixed identities — one photo maps to exactly one name, reused consistently
+        // across the static comments, the live feed, and the purchase notifications.
+        var PEOPLE = [
+          { n: 'Margaret R.', s: 'Florida', a: 'images/depo1.webp' },
+          { n: 'Helen T.',    s: 'Ohio',    a: 'images/depo2.webp' },
+          { n: 'Lauren P.',   s: 'Arizona', a: 'images/depo3.webp' },
+          { n: 'Sandra K.',   s: 'Texas',   a: 'images/depo4.webp' },
+          { n: 'Patricia M.', s: 'Georgia', a: 'images/depo5.webp' }
+        ];
         var KITS = [{ label: '6-bottle kit', qty: 2 }, { label: '3-bottle kit', qty: 1 }, { label: '2-bottle kit', qty: 1 }];
         var COMMENTS = [
           'Day 12 and I finally remembered my grandson’s birthday without a reminder. Emotional.',
@@ -911,7 +882,6 @@
           'My wife said I seem “more present.” That hit me.',
           'Finally something that actually does what it says.'
         ];
-        var AVATARS = ['images/depo1.webp', 'images/depo2.webp', 'images/depo3.webp', 'images/depo4.webp', 'images/depo5.webp'];
         var HEART = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.6 8.4 2.3 5 5.6 5c2 0 3.3 1.2 4.4 2.6C11.1 6.2 12.4 5 14.4 5c3.3 0 5 3.4 3.6 6.7C19.5 16.4 12 21 12 21z"></path></svg>';
 
         /* ---- 1) live viewers / checkout counters ---- */
@@ -952,38 +922,51 @@
           return d;
         }
         function renderTimer() {
-          var el = $('#resTimer'); if (!el) return;
-          if (deadline === null) deadline = ensureDeadline();
+          var el = $('#resTimer'); if (!el || deadline === null) return;
           var left = deadline - Date.now();
           if (left <= 0) { deadline = Date.now() + RES_MS; try { localStorage.setItem(RES_KEY, deadline); } catch (e) {} left = RES_MS; }
           var m = Math.floor(left / 60000), s = Math.floor((left % 60000) / 1000);
           el.textContent = m + ':' + (s < 10 ? '0' + s : s);
         }
-        setInterval(renderTimer, 1000); renderTimer();
+        setInterval(renderTimer, 1000);
 
+        // Everything tied to the offer ("DTC") starts ONLY when it actually appears:
+        // the reservation countdown AND the purchase notifications.
+        var dtcStarted = false;
+        function startDTC() {
+          if (dtcStarted) return;
+          dtcStarted = true;
+          deadline = ensureDeadline();   // 15-min reservation from first offer view (persisted, continuous)
+          renderTimer();
+          loopToast();                   // buy notifications begin together with the offer
+        }
         window.CBSLive = window.CBSLive || {};
-        window.CBSLive.onOfferReveal = function () { deadline = ensureDeadline(); renderTimer(); };
+        window.CBSLive.onOfferReveal = function () {};  // real trigger is the visibility watcher below
+        var offerEl = $('#content4-y');
+        var dtcWatch = setInterval(function () {
+          if (offerEl && offerEl.offsetParent !== null) { clearInterval(dtcWatch); startDTC(); }
+        }, 1000);
 
         /* ---- 3) "just reserved" toasts (live social proof, drive stock) ---- */
         var wrap = $('#lvtWrap');
         function showToast() {
           if (!wrap) return;
-          var name = pick(NAMES), state = pick(STATES), kit = pick(KITS), secs = rand(2, 48);
+          var p = pick(PEOPLE), kit = pick(KITS), secs = rand(2, 48);
           var el = document.createElement('div');
           el.className = 'lvt';
           el.innerHTML =
-            '<img width="40" height="40" class="lvt__avatar" src="' + pick(AVATARS) + '" alt="">' +
+            '<img width="40" height="40" class="lvt__avatar" src="' + p.a + '" alt="">' +
             '<div class="lvt__body">' +
-              '<div class="lvt__title"><span>' + name + '</span> from ' + state + ' just reserved a ' + kit.label + '</div>' +
+              '<div class="lvt__title"><span>' + p.n + '</span> from ' + p.s + ' just reserved a ' + kit.label + '</div>' +
               '<div class="lvt__meta"><span class="lvt__check">✔</span> Verified order · ' + secs + 's ago</div>' +
             '</div>';
           wrap.appendChild(el);
           requestAnimationFrame(function () { el.classList.add('is-in'); });
           reduceStock(kit.qty);
-          burst(rand(2, 4));
+          burst(rand(1, 2));
           setTimeout(function () { el.classList.remove('is-in'); setTimeout(function () { el.remove(); }, 500); }, 5200);
         }
-        (function loopToast() { setTimeout(function () { showToast(); loopToast(); }, rand(7000, 16000)); })();
+        function loopToast() { setTimeout(function () { showToast(); loopToast(); }, rand(7000, 16000)); }
 
         /* ---- 4) live comment feed (drip + relative timestamps) ---- */
         var list = $('#cm-list'), cmCountEl = $('#cmCount'), times = [];
@@ -994,14 +977,15 @@
           if (d < 3600) return Math.floor(d / 60) + 'm';
           return Math.floor(d / 3600) + 'h';
         }
-        function addComment() {
+        function addComment(person) {
           if (!list) return;
+          person = person || pick(PEOPLE);
           var ts = Date.now(), row = document.createElement('div');
           row.className = 'cm-row cm-new';
           row.innerHTML =
-            '<img width="80" height="80" class="cm-avatar" src="' + pick(AVATARS) + '" loading="lazy" alt="">' +
+            '<img width="80" height="80" class="cm-avatar" src="' + person.a + '" loading="lazy" alt="">' +
             '<div class="w-full"><div class="cm-bubble">' +
-              '<p class="cm-name">' + pick(NAMES) + ' ' + pick(['R.', 'T.', 'M.', 'S.', 'K.', 'W.']) + '</p>' +
+              '<p class="cm-name">' + person.n + '</p>' +
               '<p class="cm-text">' + pick(COMMENTS) + '</p></div>' +
             '<div class="cm-meta">' +
               '<button type="button" class="cm-like">Like</button>' +
@@ -1013,11 +997,11 @@
           times.push({ el: row.querySelector('.cm-time'), ts: ts });
           if (cmCountEl) cmCountEl.textContent = ((parseInt(cmCountEl.textContent.replace(/\D/g, ''), 10) || 0) + 1).toLocaleString();
           setTimeout(function () { row.classList.remove('cm-new'); }, 600);
-          burst(rand(2, 4));
+          burst(rand(1, 2));
           var rows = list.querySelectorAll('.cm-row');
           if (rows.length > 14) list.removeChild(rows[rows.length - 1]);
         }
-        (function loopComment() { setTimeout(function () { showTyping(addComment); loopComment(); }, rand(9000, 20000)); })();
+        (function loopComment() { setTimeout(function () { var p = pick(PEOPLE); showTyping(p, addComment); loopComment(); }, rand(9000, 20000)); })();
         setInterval(function () { times.forEach(function (t) { if (t.el && t.el.isConnected) t.el.textContent = relTime(t.ts); }); }, 5000);
 
         /* ---- 5) delegated comment interactions ---- */
@@ -1061,25 +1045,25 @@
           e.style.fontSize = rand(16, 26) + 'px';
           rlayer.appendChild(e);
           setTimeout(function () { e.remove(); }, 2900);
-          if (rlayer.childElementCount > 18) rlayer.removeChild(rlayer.firstChild);
+          if (rlayer.childElementCount > 10) rlayer.removeChild(rlayer.firstChild);
         }
-        function burst(n) { for (var i = 0; i < n; i++) setTimeout(emitReaction, i * 170); }
-        if (!RM) setInterval(function () { if (Math.random() < 0.8) emitReaction(); }, 900);
+        function burst(n) { for (var i = 0; i < n; i++) setTimeout(emitReaction, i * 220); }
+        if (!RM) setInterval(function () { if (Math.random() < 0.5) emitReaction(); }, 2600);
 
-        function showTyping(cb) {
-          if (!list || RM) { cb(); return; }
+        function showTyping(person, cb) {
+          if (!list || RM) { cb(person); return; }
           var t = document.createElement('div');
           t.className = 'cm-row cm-typing';
-          t.innerHTML = '<img width="80" height="80" class="cm-avatar" src="' + pick(AVATARS) + '" loading="lazy" alt="">' +
+          t.innerHTML = '<img width="80" height="80" class="cm-avatar" src="' + person.a + '" loading="lazy" alt="">' +
             '<div><div class="cm-bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></div>';
           list.insertBefore(t, list.firstChild);
-          setTimeout(function () { t.remove(); cb(); }, rand(1600, 2600));
+          setTimeout(function () { t.remove(); cb(person); }, rand(1600, 2600));
         }
 
         var faces = $('#liveFaces');
         if (faces) setInterval(function () {
           var imgs = faces.querySelectorAll('img');
-          if (imgs.length) imgs[rand(0, imgs.length - 1)].src = pick(AVATARS);
+          if (imgs.length) imgs[rand(0, imgs.length - 1)].src = pick(PEOPLE).a;
         }, 5000);
 
         var origTitle = document.title, flip = null;
