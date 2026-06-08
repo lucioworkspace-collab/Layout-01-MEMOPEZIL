@@ -530,65 +530,55 @@
       animation: float-up 2.8s ease-out forwards;
     }
 
-    /* ===== Live chat panel below the VSL (high contrast, never covers the video) ===== */
-    .livechat {
-      max-width: 400px;
-      margin: 12px auto 0;
-      background: #1b1d22;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .14);
-    }
-
-    .livechat__head {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 13px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .04em;
-      color: #fff;
-      background: #26282e;
-      border-bottom: 1px solid rgba(255, 255, 255, .06);
-      font-family: 'Open Sans', Arial, sans-serif;
-    }
-
-    .livechat__body {
-      height: 150px;
-      overflow: hidden;
+    /* ===== Live chat overlay on the VSL (compact, high-contrast, non-obstructive) ===== */
+    .vsl-chat {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      z-index: 3;
+      width: 66%;
+      max-width: 250px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      gap: 9px;
-      padding: 11px 13px;
-      -webkit-mask-image: linear-gradient(to top, #000 82%, transparent);
-      mask-image: linear-gradient(to top, #000 82%, transparent);
+      gap: 6px;
+      max-height: 58%;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to top, #000 58%, transparent);
+      mask-image: linear-gradient(to top, #000 58%, transparent);
     }
 
     .vsl-chat__msg {
       display: flex;
       align-items: flex-start;
-      gap: 9px;
+      gap: 7px;
       animation: chat-in .35s ease;
     }
 
     .vsl-chat__av {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       border-radius: 9999px;
       object-fit: cover;
       flex: 0 0 auto;
       margin-top: 1px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
     }
 
     .vsl-chat__txt {
-      font-size: 12.5px;
-      line-height: 1.4;
-      color: #e8eaed;
+      font-size: 12px;
+      line-height: 1.35;
+      color: #fff;
+      background: rgba(17, 18, 22, .62);
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      border-radius: 12px;
+      padding: 5px 10px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
     }
 
-    .vsl-chat__name { font-weight: 800; color: #e6b34d; margin-right: 6px; }
+    .vsl-chat__name { font-weight: 800; color: #ffd87a; margin-right: 5px; }
 
     @keyframes chat-in {
       from { opacity: 0; transform: translateY(8px); }
@@ -710,6 +700,7 @@
         <div class="vsl-stage">
           <div class="vsl-badge"><span class="live-dot"></span> LIVE <span id="vslClock">0:00</span></div>
           <vturb-smartplayer id="vid-6a250fac5306f4786ccf8321" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+          <div class="vsl-chat" id="vslChat" aria-hidden="true"></div>
           <div class="reactions" id="reactions" aria-hidden="true"></div>
         </div>
         <script type="text/javascript"> var s = document.createElement("script"); s.src = "https://scripts.converteai.net/13e4d193-3f66-46ab-8eb0-6e6da4bd133b/players/6a250fac5306f4786ccf8321/v4/player.js", s.async = !0, document.head.appendChild(s); </script>
@@ -752,12 +743,6 @@
           <img src="images/depo2.webp" width="40" height="40" alt="" loading="lazy">
         </span>
         <span class="livebar__count"><span id="liveViewers">1,247</span> watching now</span>
-      </div>
-
-      <!-- Live chat panel (below the VSL — high contrast, never covers the video) -->
-      <div class="livechat">
-        <div class="livechat__head"><span class="live-dot"></span> Live chat</div>
-        <div class="livechat__body" id="vslChat" aria-live="polite"></div>
       </div>
       <div style="display: flex; justify-content: center ;">
         <img decoding="async" width="750" height="123" src="images/ADV-PORTAIS.webp" class="img_adv" alt="Advertorial">
@@ -1324,7 +1309,7 @@
           row.innerHTML = '<img class="vsl-chat__av" src="' + p.a + '" alt="" loading="lazy">' +
             '<div class="vsl-chat__txt"><span class="vsl-chat__name">' + p.n.split(' ')[0] + '</span>' + nextChatMsg() + '</div>';
           chatEl.appendChild(row);
-          while (chatEl.childElementCount > 6) chatEl.removeChild(chatEl.firstChild);
+          while (chatEl.childElementCount > 3) chatEl.removeChild(chatEl.firstChild);
           if (Math.random() < 0.25) emitReaction();
         }
         (function loopChat() { setTimeout(function () { addChat(); loopChat(); }, rand(4500, 8000)); })();
