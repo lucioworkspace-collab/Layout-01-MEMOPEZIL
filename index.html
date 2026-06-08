@@ -415,8 +415,8 @@
 
     .trust__lock { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 800; color: #1f7a3d; }
     .trust__lock svg { width: 14px; height: 14px; }
-    .trust__cards { display: inline-flex; align-items: center; gap: 6px; }
-    .trust__cards svg { height: 22px; width: auto; display: block; }
+    .trust__cards { display: inline-flex; align-items: center; }
+    .trust__cards img { height: 26px; width: auto; display: block; }
 
     @media (max-width: 480px) {
       .trust__guarantee { gap: 13px; padding: 13px; }
@@ -860,7 +860,7 @@
               <p class="small mb-3">60-Day Money-Back Guarantee</p>
               <div class="col-7 mx-auto mb-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.png" alt="Card" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.webp" alt="Card" class="img-fluid">
                 </picture>
               </div>
               <p class="mb-1">TOTAL: <span class="text-decoration-line-through">$158</span>
@@ -894,7 +894,7 @@
               <p class="small mb-3">60 Day Money-Back Guarantee</p>
               <div class="col-7 mx-auto mb-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.png" alt="Card" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.webp" alt="Card" class="img-fluid">
                 </picture>
               </div>
               <p class="mb-1">TOTAL: <span class="text-decoration-line-through">$1074</span>
@@ -928,7 +928,7 @@
               <p class="small mb-3">60 Day Money-Back Guarantee</p>
               <div class="col-7 mx-auto mb-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.png" alt="Card" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="425" height="74" src="images/card.webp" alt="Card" class="img-fluid">
                 </picture>
               </div>
               <p class="mb-1">TOTAL: <span class="text-decoration-line-through">$716</span>
@@ -951,11 +951,8 @@
         </div>
         <div class="trust__secure">
           <span class="trust__lock"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm-3 8V6a3 3 0 0 1 6 0v3H9z"></path></svg> SSL Secure Checkout</span>
-          <span class="trust__cards" aria-label="Accepted cards: Visa, Mastercard, American Express, Discover">
-            <svg viewBox="0 0 40 24" role="img"><rect width="40" height="24" rx="3" fill="#fff" stroke="#e5e7eb"></rect><text x="20" y="16.5" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="11" fill="#1a1f71" letter-spacing="1">VISA</text></svg>
-            <svg viewBox="0 0 40 24" role="img"><rect width="40" height="24" rx="3" fill="#fff" stroke="#e5e7eb"></rect><circle cx="17" cy="12" r="6" fill="#eb001b"></circle><circle cx="23" cy="12" r="6" fill="#f79e1b" opacity=".9"></circle></svg>
-            <svg viewBox="0 0 40 24" role="img"><rect width="40" height="24" rx="3" fill="#2e77bc"></rect><text x="20" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="8" fill="#fff" letter-spacing=".5">AMEX</text></svg>
-            <svg viewBox="0 0 40 24" role="img"><rect width="40" height="24" rx="3" fill="#fff" stroke="#e5e7eb"></rect><text x="20" y="15.5" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="7" fill="#f26e21" letter-spacing=".2">DISCOVER</text></svg>
+          <span class="trust__cards">
+            <img src="images/card.webp" alt="MasterCard, Visa, American Express, Discover accepted" width="510" height="89" loading="lazy" decoding="async">
           </span>
         </div>
       </div>
