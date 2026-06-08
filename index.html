@@ -493,6 +493,23 @@
 
     @media (prefers-reduced-motion: reduce) { .reviews__track { animation: none; } }
 
+    /* ===== DTC trust media: social-proof collage, certification seals, label ===== */
+    .proof { max-width: 520px; margin: 22px auto 0; padding: 0 10px; }
+    .proof img { width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: var(--shadow-soft); }
+
+    .seals-wrap { max-width: 600px; margin: 20px auto 0; padding: 0 12px; text-align: center; }
+    .seals-wrap p { font-size: 12px; font-weight: 700; letter-spacing: .03em; color: var(--muted); text-transform: uppercase; margin: 0 0 10px; }
+    .seals { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 18px; }
+    .seals img { height: 72px; width: auto; }
+
+    .label-facts { max-width: 720px; margin: 24px auto 4px; padding: 0 12px; text-align: center; }
+    .label-facts h3 { font-size: 15px; font-weight: 800; color: #1f2937; margin: 0 0 4px; font-family: 'Open Sans', Arial, sans-serif; }
+    .label-facts p { font-size: 12.5px; color: var(--muted); margin: 0 0 12px; }
+    .label-facts img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-soft); }
+
+    /* real money-back badge inside the guarantee box */
+    .trust__guarantee > img { width: 86px; height: 86px; flex: 0 0 auto; }
+
     .scarcity {
       max-width: 460px;
       margin: 22px auto;
@@ -947,6 +964,11 @@
         </div>
       </section>
 
+      <!-- Social-proof collage: real customers with the product -->
+      <div class="proof esconder">
+        <img src="images/proof-collage.webp" alt="Real customers holding Neuro Mind Pro — trusted by thousands daily" width="760" height="434" loading="lazy" decoding="async">
+      </div>
+
       <!-- ===== Continuous-scroll verified reviews (premium social proof) ===== -->
       <section class="reviews esconder" aria-label="Customer reviews">
         <div class="reviews__head">
@@ -1103,10 +1125,20 @@
         </div>
       </div>
 
+      <!-- Certification seals -->
+      <div class="seals-wrap esconder">
+        <p>Made in an FDA-registered, GMP-certified facility</p>
+        <div class="seals">
+          <img src="images/seal-fda.webp" alt="FDA Registered Facility" width="220" height="220" loading="lazy" decoding="async">
+          <img src="images/seal-gmp.webp" alt="GMP — Good Manufacturing Practice" width="220" height="220" loading="lazy" decoding="async">
+          <img src="images/seal-usa.webp" alt="Foreign and Domestic Ingredients" width="220" height="220" loading="lazy" decoding="async">
+        </div>
+      </div>
+
       <!-- DTC trust band: 60-day guarantee + secure checkout (affiliate-side reassurance) -->
       <div class="trust esconder">
         <div class="trust__guarantee">
-          <div class="seal" aria-hidden="true"><b>60</b><span>DAY</span><small>MONEY-BACK</small></div>
+          <img src="images/seal-guarantee.webp" alt="100% money-back guarantee" width="220" height="220" loading="lazy" decoding="async">
           <div class="trust__gtext">
             <strong>Try it 100% risk-free for 60 days.</strong>
             <span>Not thrilled with your results? Request a full refund — no questions asked.</span>
@@ -1118,6 +1150,13 @@
             <img src="images/card.webp" alt="MasterCard, Visa, American Express, Discover accepted" width="510" height="89" loading="lazy" decoding="async">
           </span>
         </div>
+      </div>
+
+      <!-- Full label / Supplement Facts — transparency -->
+      <div class="label-facts esconder">
+        <h3>Full transparency — see exactly what&rsquo;s inside</h3>
+        <p>Every ingredient and dose, printed right on the label.</p>
+        <img src="images/label-facts.webp" alt="Neuro Mind Pro Supplement Facts and label" width="1100" height="408" loading="lazy" decoding="async">
       </div>
 
       <div class="max-w-3xl mx-auto px-4 py-6 text-[14px] text-[#333] leading-relaxed font-sans border-t border-gray-200 mt-4 esconder">
