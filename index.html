@@ -800,20 +800,16 @@
     .cm-list > .cm-row.cm-new { box-shadow: inset 3px 0 0 var(--brand); background: rgba(205, 137, 0, .06); }
 
     /* ===== Live VSL stage: LIVE badge + broadcast clock + floating reactions ===== */
-    /* Hero treatment: larger, rounded, deep shadow + black frame so the portrait
-       VSL is the unmistakable focal point of the page. */
+    /* Clean framing: the 3:4 video sits on its own — larger and centred, with no
+       frame or background boxing it in. */
     .vsl-stage {
       position: relative;
       width: 100%;
       max-width: 440px;
       margin: 0 auto;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 22px 55px -16px rgba(0, 0, 0, .55), 0 0 0 1px rgba(0, 0, 0, .08);
     }
 
-    /* Focused column around the hero video */
+    /* Focused column around the video */
     .video_vturb { max-width: 520px; padding: 10px 14px 22px; }
 
     /* Reserve the 3:4 video box up-front so the player can't shift layout (CLS) */
@@ -1033,7 +1029,7 @@
           // ===================================================
           // Adjust the time in seconds and minutes on your VSL.
           // ===================================================
-          var SECONDS_TO_DISPLAY = 3485;
+          var SECONDS_TO_DISPLAY = 2445; // 40:45 — matches the real VSL runtime
 
           function waitForPlayer() {
             const player = document.querySelector("vturb-smartplayer");
