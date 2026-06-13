@@ -1,0 +1,9 @@
+{
+  // Static-assets-only Worker. No server code — Workers Builds just uploads
+  // the files in this repo and serves them, honouring the _headers cache rules.
+  "name": "memopezil-layout-1",
+  "compatibility_date": "2025-06-01",
+  "assets": {
+    "directory": "."
+  }
+}
