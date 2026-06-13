@@ -800,17 +800,18 @@
     .cm-list > .cm-row.cm-new { box-shadow: inset 3px 0 0 var(--brand); background: rgba(205, 137, 0, .06); }
 
     /* ===== Live VSL stage: LIVE badge + broadcast clock + floating reactions ===== */
-    /* Clean framing: the 3:4 video sits on its own — larger and centred, with no
-       frame or background boxing it in. */
+    /* Clean framing: the 3:4 video sits on its own, centred. The stage matches the
+       player's native 400px frame so the LIVE badge and the chat hug the actual
+       video — a wider box left them floating in the empty side gaps. */
     .vsl-stage {
       position: relative;
       width: 100%;
-      max-width: 440px;
+      max-width: 400px;
       margin: 0 auto;
     }
 
     /* Focused column around the video */
-    .video_vturb { max-width: 520px; padding: 10px 14px 22px; }
+    .video_vturb { max-width: 440px; padding: 10px 14px 22px; }
 
     /* Reserve the 3:4 video box up-front so the player can't shift layout (CLS) */
     .vsl-stage vturb-smartplayer { display: block; width: 100%; aspect-ratio: 3 / 4; }
@@ -1015,7 +1016,7 @@
         <!-- Vídeo vturb -->
         <div class="vsl-stage">
           <div class="vsl-badge"><span class="live-dot"></span> LIVE <span id="vslClock">0:00</span></div>
-          <vturb-smartplayer id="vid-6a2dc5e9f1639bbd69b1f3ff" style="display: block; margin: 0 auto; width: 100%; max-width: 100%;"></vturb-smartplayer>
+          <vturb-smartplayer id="vid-6a2dc5e9f1639bbd69b1f3ff" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
           <div class="vsl-chat" id="vslChat" aria-hidden="true"></div>
           <div class="reactions" id="reactions" aria-hidden="true"></div>
         </div>
