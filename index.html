@@ -818,25 +818,27 @@
 
     .vsl-badge {
       position: absolute;
-      top: 8px;
-      left: 8px;
+      top: 10px;
+      left: 10px;
       z-index: 3;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(0, 0, 0, .62);
+      gap: 7px;
+      background: rgba(0, 0, 0, .72);
       color: #fff;
       font-family: 'Open Sans', Arial, sans-serif;
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: .06em;
-      padding: 4px 9px;
-      border-radius: 6px;
+      letter-spacing: .07em;
+      padding: 6px 11px;
+      border-radius: 8px;
       pointer-events: none;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, .4);
     }
 
-    .vsl-badge .live-dot { background: #fff; }
-    .vsl-badge #vslClock { font-variant-numeric: tabular-nums; opacity: .9; font-weight: 700; }
+    .vsl-badge .live-dot { background: #ff2b2b; width: 9px; height: 9px; }
+    /* Make the running broadcast clock the eye-catching part of the badge. */
+    .vsl-badge #vslClock { font-variant-numeric: tabular-nums; opacity: 1; font-weight: 800; font-size: 13.5px; letter-spacing: .02em; color: #ffd87a; }
 
     .reactions {
       position: absolute;
@@ -1251,7 +1253,7 @@
               <p class="small mb-0">60 Days, 2 Bottles</p>
               <div class="col-9 mx-auto py-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="600" height="600" src="images/2-potes-aff-neuro.webp" alt="Neuro Mind Pro — 2 bottles" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="600" height="600" src="images/mmp-2-bottles.webp" alt="MEMOPEZIL — 2 bottles" class="img-fluid">
                 </picture>
               </div>
               <div class="d-flex justify-content-center align-items-center">
@@ -1288,7 +1290,7 @@
               <p class="small mb-0">180 Days, 6 Bottles</p>
               <div class="col-9 mx-auto py-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="600" height="600" src="images/6-potes-aff-neuro.webp" alt="Neuro Mind Pro — 6 bottles" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="600" height="600" src="images/mmp-6-bottles.webp" alt="MEMOPEZIL — 6 bottles" class="img-fluid">
                 </picture>
               </div>
               <div class="d-flex justify-content-center align-items-center">
@@ -1323,7 +1325,7 @@
               <p class="small mb-0">90 Days, 3 Bottles</p>
               <div class="col-9 mx-auto py-3">
                 <picture>
-                  <img loading="lazy" decoding="async" width="600" height="600" src="images/3-potes-aff-neuro.webp" alt="Neuro Mind Pro — 3 bottles" class="img-fluid">
+                  <img loading="lazy" decoding="async" width="600" height="600" src="images/mmp-3-bottles.webp" alt="MEMOPEZIL — 3 bottles" class="img-fluid">
                 </picture>
               </div>
               <div class="d-flex justify-content-center align-items-center">
@@ -1436,7 +1438,7 @@
     </section>
     <!-- Sticky 6-bottle buy bar (slides up when the offer unlocks) -->
     <a class="buybar" id="buyBar" target="_self" aria-label="Add the 6-bottle Best Value kit to cart — $49 per bottle, free shipping" href="https://buygoods.com/secure/checkout.html?aff_id=2574&amp;account_id=12595&amp;product_codename=neu6&amp;redirect=aHR0cHM6Ly9nZXRuZXVyb21pbmRwcm8ub25saW5lL2JnL1Vwc2VsbDAxLw%3D%3D&amp;subid5=">
-      <img class="buybar__thumb" src="images/6-potes-aff-neuro.webp" width="52" height="52" alt="" loading="lazy" decoding="async">
+      <img class="buybar__thumb" src="images/mmp-6-bottles.webp" width="52" height="52" alt="" loading="lazy" decoding="async">
       <span class="buybar__info">
         <span class="buybar__label">Best Value · 6 Bottles</span>
         <span class="buybar__price"><b>$49</b>/bottle <span class="buybar__old">$179</span></span>
@@ -1737,11 +1739,12 @@
           while (chatEl.childElementCount > 1) chatEl.removeChild(chatEl.firstChild);
           if (Math.random() < 0.25) emitReaction();
         }
-        // Live chat runs from the very first moment — the prospect lands in a room
-        // that's already "alive", which deepens immersion. A short initial beat, then
-        // a self-pacing loop keeps a steady, natural cadence of messages.
-        (function loopChat() { setTimeout(function () { addChat(); loopChat(); }, rand(4500, 8000)); })();
-        setTimeout(addChat, 1200);
+        // Hold the chat for a few seconds so the prospect settles into the video
+        // first, then start the self-pacing loop (steady, natural cadence).
+        setTimeout(function () {
+          addChat();
+          (function loopChat() { setTimeout(function () { addChat(); loopChat(); }, rand(4500, 8000)); })();
+        }, rand(5000, 6500));
 
         function showTyping(person, cb) {
           if (!list || RM) { cb(person); return; }
