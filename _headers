@@ -8,5 +8,9 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # HTML should always revalidate so updates go live immediately.
+# Cover the bare home page too — "/" is not matched by "/*.html", so without
+# this rule it can be served stale after a deploy (loads the old/base version).
+/
+  Cache-Control: public, max-age=0, must-revalidate
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
