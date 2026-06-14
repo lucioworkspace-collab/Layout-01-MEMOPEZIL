@@ -830,6 +830,40 @@
     /* Focused column around the video */
     .video_vturb { max-width: 440px; padding: 4px 14px 20px; }
 
+    /* Tap-to-play cue above the player — drives the play rate, hides on play */
+    .vsl-cue {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: calc(100% - 28px);
+      max-width: 400px;
+      margin: 2px auto 9px;
+      padding: 11px 16px;
+      background: linear-gradient(180deg, #ff2e3e 0%, #d40d1e 100%);
+      color: #fff;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1.1;
+      border: 0;
+      border-radius: 11px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px -8px rgba(212, 13, 30, .7);
+      animation: cue-pulse 1.7s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .vsl-cue__play {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 9999px;
+      background: rgba(255, 255, 255, .22); font-size: 10px; padding-left: 2px; flex: 0 0 auto;
+    }
+    .vsl-cue__chev { font-size: 11px; opacity: .92; animation: cue-bounce 1.05s ease-in-out infinite; }
+    .vsl-cue.is-hidden { opacity: 0; transform: scale(.96); pointer-events: none; transition: opacity .35s ease, transform .35s ease; }
+    @keyframes cue-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+    @keyframes cue-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    @media (prefers-reduced-motion: reduce) { .vsl-cue, .vsl-cue__chev { animation: none; } }
+
     /* Reserve the 3:4 video box up-front so the player can't shift layout (CLS) */
     .vsl-stage vturb-smartplayer { display: block; width: 100%; aspect-ratio: 3 / 4; }
 
@@ -1035,6 +1069,34 @@
         </span>
         <span class="livebar__count"><span id="liveViewers">1,247</span> watching now</span>
       </div>
+      <!-- Tap-to-play cue (hides as soon as the video starts) -->
+      <button type="button" class="vsl-cue" id="vslCue" aria-label="Play the presentation">
+        <span class="vsl-cue__play" aria-hidden="true">▶</span>
+        <span class="vsl-cue__txt">Tap to play the presentation</span>
+        <span class="vsl-cue__chev" aria-hidden="true">▼</span>
+      </button>
+      <script>
+        (function () {
+          var cue = document.getElementById('vslCue');
+          if (!cue) return;
+          var gone = false;
+          function hide() {
+            if (gone) return; gone = true;
+            cue.classList.add('is-hidden');
+            setTimeout(function () { if (cue.parentNode) cue.parentNode.removeChild(cue); }, 450);
+          }
+          cue.addEventListener('click', function () {
+            try { var pl = document.querySelector('vturb-smartplayer'); if (pl) pl.click(); } catch (e) {}
+            hide();
+          });
+          // Tapping the player itself also dismisses the cue (the stage loads after this script).
+          (function bindStage(tries) {
+            var st = document.querySelector('.vsl-stage');
+            if (st) { st.addEventListener('pointerdown', hide, { once: true }); }
+            else if (tries < 60) { setTimeout(function () { bindStage(tries + 1); }, 100); }
+          })(0);
+        })();
+      </script>
       <div class="video_vturb">
 
         <!--
