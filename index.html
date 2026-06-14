@@ -830,39 +830,48 @@
     /* Focused column around the video */
     .video_vturb { max-width: 440px; padding: 4px 14px 20px; }
 
-    /* Tap-to-play cue above the player — drives the play rate, hides on play */
+    /* Tap-to-play cue above the player — refined "player" look, hides on play */
     .vsl-cue {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 9px;
-      width: calc(100% - 28px);
-      max-width: 400px;
-      margin: 2px auto 9px;
-      padding: 11px 16px;
-      background: linear-gradient(180deg, #ff2e3e 0%, #d40d1e 100%);
-      color: #fff;
+      gap: 12px;
+      width: fit-content;
+      max-width: calc(100% - 28px);
+      margin: 4px auto 11px;
+      padding: 8px 20px 8px 9px;
+      background: #fff;
+      color: var(--ink);
       font-family: 'Open Sans', Arial, sans-serif;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 15px;
-      line-height: 1.1;
-      border: 0;
-      border-radius: 11px;
+      line-height: 1.15;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 9999px;
       cursor: pointer;
-      box-shadow: 0 8px 22px -8px rgba(212, 13, 30, .7);
-      animation: cue-pulse 1.7s ease-in-out infinite;
+      box-shadow: 0 8px 22px -10px rgba(20, 22, 31, .3);
       -webkit-tap-highlight-color: transparent;
+      transition: box-shadow .2s ease, transform .2s ease;
     }
+    .vsl-cue:hover { transform: translateY(-1px); box-shadow: 0 12px 26px -10px rgba(20, 22, 31, .38); }
     .vsl-cue__play {
+      position: relative;
       display: inline-flex; align-items: center; justify-content: center;
-      width: 22px; height: 22px; border-radius: 9999px;
-      background: rgba(255, 255, 255, .22); font-size: 10px; padding-left: 2px; flex: 0 0 auto;
+      width: 38px; height: 38px; border-radius: 9999px;
+      background: var(--ink); color: #fff; flex: 0 0 auto;
     }
-    .vsl-cue__chev { font-size: 11px; opacity: .92; animation: cue-bounce 1.05s ease-in-out infinite; }
-    .vsl-cue.is-hidden { opacity: 0; transform: scale(.96); pointer-events: none; transition: opacity .35s ease, transform .35s ease; }
-    @keyframes cue-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
-    @keyframes cue-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
-    @media (prefers-reduced-motion: reduce) { .vsl-cue, .vsl-cue__chev { animation: none; } }
+    .vsl-cue__play svg { width: 15px; height: 15px; margin-left: 2px; }
+    .vsl-cue__play::before {
+      content: ""; position: absolute; inset: 0; border-radius: 9999px;
+      animation: cue-ring 2.2s ease-out infinite;
+    }
+    .vsl-cue.is-hidden { opacity: 0; transform: scale(.97); pointer-events: none; transition: opacity .35s ease, transform .35s ease; }
+    @keyframes cue-ring {
+      0% { box-shadow: 0 0 0 0 rgba(21, 24, 30, .3); }
+      70% { box-shadow: 0 0 0 13px rgba(21, 24, 30, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(21, 24, 30, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) { .vsl-cue__play::before { animation: none; } }
 
     /* Reserve the 3:4 video box up-front so the player can't shift layout (CLS) */
     .vsl-stage vturb-smartplayer { display: block; width: 100%; aspect-ratio: 3 / 4; }
@@ -1071,9 +1080,8 @@
       </div>
       <!-- Tap-to-play cue (hides as soon as the video starts) -->
       <button type="button" class="vsl-cue" id="vslCue" aria-label="Play the presentation">
-        <span class="vsl-cue__play" aria-hidden="true">▶</span>
-        <span class="vsl-cue__txt">Tap to play the presentation</span>
-        <span class="vsl-cue__chev" aria-hidden="true">▼</span>
+        <span class="vsl-cue__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
+        <span class="vsl-cue__txt">Watch the presentation</span>
       </button>
       <script>
         (function () {
