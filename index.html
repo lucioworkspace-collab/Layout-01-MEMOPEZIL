@@ -842,10 +842,10 @@
 
     .reactions {
       position: absolute;
-      right: 6px;
-      bottom: 6px;
-      width: 64px;
-      height: 230px;
+      right: 8px;
+      bottom: 10px;
+      width: 96px;
+      height: 250px;
       pointer-events: none;
       z-index: 3;
       overflow: visible;
@@ -857,7 +857,8 @@
       right: 0;
       line-height: 1;
       will-change: transform, opacity;
-      animation: float-up 2.8s ease-out forwards;
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .35));
+      animation: float-up 3.2s ease-out forwards;
     }
 
     /* ===== Live chat overlay on the VSL (compact, high-contrast, non-obstructive) ===== */
@@ -920,9 +921,11 @@
     }
 
     @keyframes float-up {
-      0% { transform: translateY(0) scale(.6); opacity: 0; }
-      15% { opacity: 1; transform: translateY(-14px) scale(1); }
-      100% { transform: translateY(-205px) translateX(var(--dx, -10px)) scale(1.06); opacity: 0; }
+      0%   { transform: translate(0, 0) scale(.55) rotate(0deg); opacity: 0; }
+      12%  { opacity: 1; }
+      40%  { transform: translate(var(--sway, -10px), -92px) scale(1.06) rotate(-7deg); }
+      72%  { transform: translate(calc(var(--sway, -10px) * -0.65), -168px) scale(1) rotate(6deg); }
+      100% { transform: translate(var(--dx, -14px), -232px) scale(.9) rotate(0deg); opacity: 0; }
     }
 
 
@@ -1679,21 +1682,24 @@
         }
         setInterval(renderClock, 1000); renderClock();
 
-        var rlayer = $('#reactions'), EMOJIS = ['❤️', '🧡', '💛', '❤️', '😍', '🙏', '👏'];
+        var rlayer = $('#reactions'), EMOJIS = ['❤️', '❤️', '❤️', '🥰', '😍', '❤️', '🙏', '👏', '💛'];
         function emitReaction() {
           if (!rlayer || RM) return;
           var e = document.createElement('span');
           e.className = 'reaction';
           e.textContent = pick(EMOJIS);
-          e.style.setProperty('--dx', rand(-26, 6) + 'px');
-          e.style.right = rand(0, 34) + 'px';
-          e.style.fontSize = rand(16, 26) + 'px';
+          e.style.setProperty('--sway', rand(-22, -4) + 'px');
+          e.style.setProperty('--dx', rand(-30, 8) + 'px');
+          e.style.right = rand(0, 46) + 'px';
+          e.style.fontSize = rand(18, 30) + 'px';
+          var dur = rand(260, 420) / 100;            // 2.6s–4.2s, so they don't rise in lockstep
+          e.style.animationDuration = dur + 's';
           rlayer.appendChild(e);
-          setTimeout(function () { e.remove(); }, 2900);
-          if (rlayer.childElementCount > 10) rlayer.removeChild(rlayer.firstChild);
+          setTimeout(function () { e.remove(); }, dur * 1000 + 200);
+          if (rlayer.childElementCount > 12) rlayer.removeChild(rlayer.firstChild);
         }
-        function burst(n) { for (var i = 0; i < n; i++) setTimeout(emitReaction, i * 220); }
-        if (!RM) setInterval(function () { if (Math.random() < 0.5) emitReaction(); }, 2600);
+        function burst(n) { for (var i = 0; i < n; i++) setTimeout(emitReaction, i * 200); }
+        if (!RM) setInterval(function () { if (Math.random() < 0.6) emitReaction(); }, 2200);
 
         /* ---- 7) live chat overlay on the VSL (40 named messages from the 11 people) ---- */
         var chatEl = $('#vslChat');
