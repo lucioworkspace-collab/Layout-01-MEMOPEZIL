@@ -824,7 +824,10 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      background: rgba(0, 0, 0, .72);
+      background: rgba(20, 22, 29, .5);
+      -webkit-backdrop-filter: blur(8px) saturate(1.15);
+      backdrop-filter: blur(8px) saturate(1.15);
+      border: 1px solid rgba(255, 255, 255, .16);
       color: #fff;
       font-family: 'Open Sans', Arial, sans-serif;
       font-size: 11px;
@@ -833,7 +836,8 @@
       padding: 6px 11px;
       border-radius: 8px;
       pointer-events: none;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, .4);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .9);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
     }
 
     .vsl-badge .live-dot { background: #ff2b2b; width: 9px; height: 9px; }
@@ -999,14 +1003,9 @@
         <div class="cbs-eyebrow">
           <span class="cbs-eyebrow__date data_atual"></span>
         </div>
-        <h1 class="headline-serif text-[22px] md:text-[38px] leading-[1.12] mb-2">
+        <h1 class="headline-serif text-[25px] md:text-[40px] leading-[1.1] mb-2">
           He Forgot Her Name on Their 47th Anniversary. His Doctors Were Treating <span class="lbl-urgent">the Wrong Disease</span>
         </h1>
-        <div class="flex items-start border-l-[3px] bar-urgent pl-3 py-1">
-          <p class="text-[15px] md:text-[17px] text-[#333] font-medium leading-snug">
-            Over 15,000 Americans have already reported a significant improvement in memory.
-          </p>
-        </div>
       </div>
       <div class="video_vturb">
 
