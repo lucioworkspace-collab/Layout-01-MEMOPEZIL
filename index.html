@@ -856,7 +856,9 @@
       transition: background .2s ease, color .2s ease;
     }
     .vsl-cue__play svg { width: 13px; height: 13px; margin-left: 2px; }
-    .vsl-cue__txt { border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color .2s ease; }
+    .vsl-cue__copy { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.22; }
+    .vsl-cue__txt { font-weight: 700; border-bottom: 1px solid transparent; padding-bottom: 1px; transition: border-color .2s ease; }
+    .vsl-cue__sub { font-size: 12px; font-weight: 500; color: var(--muted); margin-top: 2px; }
     .vsl-cue:hover .vsl-cue__play { background: var(--ink); color: #fff; }
     .vsl-cue:hover .vsl-cue__txt { border-color: rgba(21, 24, 30, .28); }
     .vsl-cue.is-hidden { opacity: 0; pointer-events: none; transition: opacity .3s ease; }
@@ -1069,7 +1071,10 @@
       <!-- Tap-to-play cue (hides as soon as the video starts) -->
       <button type="button" class="vsl-cue" id="vslCue" aria-label="Play the presentation">
         <span class="vsl-cue__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg></span>
-        <span class="vsl-cue__txt">Watch the presentation</span>
+        <span class="vsl-cue__copy">
+          <span class="vsl-cue__txt">Tap the play button to watch</span>
+          <span class="vsl-cue__sub">Others are already watching now</span>
+        </span>
       </button>
       <script>
         (function () {
