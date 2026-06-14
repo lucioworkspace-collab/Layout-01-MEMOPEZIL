@@ -256,6 +256,23 @@
       white-space: nowrap;
     }
 
+    /* Byline / credibility meta row under the headline */
+    .byline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px 11px;
+      margin: 0 0 4px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .byline strong { color: var(--ink); font-weight: 700; }
+    .byline__rev { display: inline-flex; align-items: center; gap: 4px; color: #15803d; font-weight: 700; }
+    .byline__rev svg { width: 13px; height: 13px; flex: 0 0 auto; }
+    .byline__dot { width: 3px; height: 3px; border-radius: 9999px; background: #c4c4c4; flex: 0 0 auto; }
+
     /* AA contrast for the scientific-references gray (was #7A7A7A = 4.0:1) —
        also kinder to the senior audience reading the citations */
     .text-\[\#7A7A7A\] { color: #595959; }
@@ -1006,6 +1023,24 @@
         <h1 class="headline-serif text-[25px] md:text-[40px] leading-[1.1] mb-2">
           He Forgot Her Name on Their 47th Anniversary. His Doctors Were Treating <span class="lbl-urgent">the Wrong Disease</span>
         </h1>
+        <div class="byline">
+          <span>By <strong>Karen Whitman</strong>, Health &amp; Science Desk</span>
+          <span class="byline__dot"></span>
+          <span class="byline__rev"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.55 17.6 4.9 12.95a1 1 0 0 1 1.4-1.4l3.25 3.24 8.16-8.16a1 1 0 1 1 1.4 1.42l-8.86 8.85a1 1 0 0 1-1.7-.3z"></path></svg>Medically reviewed</span>
+          <span class="byline__dot"></span>
+          <span>7 min read</span>
+        </div>
+      </div>
+      <!-- Live presence strip — frames the player as a live event -->
+      <div class="livebar" aria-hidden="true">
+        <span class="live-dot"></span>
+        <span class="livebar__label">LIVE</span>
+        <span class="livebar__faces">
+          <img src="images/depo1.webp" width="120" height="120" alt="" loading="lazy">
+          <img src="images/depo2.webp" width="120" height="120" alt="" loading="lazy">
+          <img src="images/depo3.webp" width="120" height="120" alt="" loading="lazy">
+        </span>
+        <span class="livebar__count"><span id="liveViewers">1,247</span> watching now</span>
       </div>
       <div class="video_vturb">
 
@@ -1143,17 +1178,6 @@
           })();
         </script>
 
-      </div>
-      <!-- Live presence strip (always visible — sets the "live broadcast" tone) -->
-      <div class="livebar" aria-hidden="true">
-        <span class="live-dot"></span>
-        <span class="livebar__label">LIVE</span>
-        <span class="livebar__faces">
-          <img src="images/depo1.webp" width="120" height="120" alt="" loading="lazy">
-          <img src="images/depo2.webp" width="120" height="120" alt="" loading="lazy">
-          <img src="images/depo3.webp" width="120" height="120" alt="" loading="lazy">
-        </span>
-        <span class="livebar__count"><span id="liveViewers">1,247</span> watching now</span>
       </div>
       <div style="display: flex; justify-content: center ;">
         <img decoding="async" fetchpriority="high" width="750" height="123" src="images/ADV-PORTAIS.webp" class="img_adv" alt="Advertorial">
